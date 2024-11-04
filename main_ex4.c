@@ -1,7 +1,9 @@
 /*  main.c  - main */
 
 #include <xinu.h>
-void sndChar(char);
+void producer(void);
+void consumer(void);
+int n;
 
 process	main(void){	
   resume(create(produser, 1024, 20, "produser",0));
