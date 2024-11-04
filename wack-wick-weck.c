@@ -7,12 +7,10 @@ void P3(void);
 sid32 s1, s2, s3;
 
 process main(void) {    
-    // Membuat semaphores
-    s1 = semcreate(1);  // Wick dimulai dari 0 (wait)
-    s2 = semcreate(0);   // Weck dimulai dari 0 (wait)
-    s3 = semcreate(0);   // Wack dimulai dari 1 (allow to run first)
+    s1 = semcreate(1);  
+    s2 = semcreate(0);
+    s3 = semcreate(0);
     
-    // Membuat dan mengeksekusi proses
     resume(create(P1, 1024, 20, "wack", 1, s1));
     resume(create(P2, 1024, 20, "wick", 1, s2));
     resume(create(P3, 1024, 20, "weck", 1, s3));
